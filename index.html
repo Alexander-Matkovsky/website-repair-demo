@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive before-and-after demo of a mobile website form repair by Sasha Matkovsky.">
+  <title>Mobile enquiry form repair | Sasha Matkovsky</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="demo.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="identity" href="./"><span class="monogram" aria-hidden="true">SM</span> Sasha Matkovsky</a>
+    <a class="source" href="https://github.com/Alexander-Matkovsky/website-repair-demo">View source <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">Mobile enquiry<br class="wide-break"> form repair</h1>
+      <p>Try the same enquiry on both versions. The original clips the email field on mobile and never confirms submission. The repair fits the screen and gives clear feedback.</p>
+    </section>
+    <section class="workbench" aria-label="Interactive website repair">
+      <div class="toolbar">
+        <div class="switcher" role="group" aria-label="Version">
+          <button type="button" data-version="before" aria-pressed="true">Before</button>
+          <button type="button" data-version="after" aria-pressed="false">After</button>
+        </div>
+        <div class="switcher device" role="group" aria-label="Preview width">
+          <button type="button" data-device="mobile" aria-pressed="true">Mobile</button>
+          <button type="button" data-device="desktop" aria-pressed="false">Desktop</button>
+        </div>
+      </div>
+      <div class="work-area">
+        <div class="stage">
+          <div class="preview" id="preview" data-version="before" data-device="mobile">
+            <div class="window-bar">
+              <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span>Workshop enquiry</span>
+              <span aria-hidden="true"></span>
+            </div>
+            <div class="viewport" id="viewport">
+              <div class="sample">
+                <h2>Request a quote</h2>
+                <p>Tell us what you’d like to build.</p>
+                <form id="enquiry" novalidate>
+                  <div class="fields">
+                    <label>Your name
+                      <input name="customer" value="Jordan Lee" required>
+                    </label>
+                    <label>Email address
+                      <input name="email" type="email" value="jordan@example.com" required aria-describedby="email-error">
+                      <small id="email-error" class="error" hidden>Enter a valid email address.</small>
+                    </label>
+                  </div>
+                  <label>What do you need?
+                    <textarea name="details" rows="2" required>A quote for two oak shelves.</textarea>
+                  </label>
+                  <button class="submit" type="submit">Send enquiry <span aria-hidden="true">↗</span></button>
+                  <p id="feedback" class="feedback" role="status"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes" aria-labelledby="checks-heading">
+          <div>
+            <h2 id="checks-heading">Verification</h2>
+            <p id="state-description">The preview starts in the original mobile view. Try sending the sample enquiry or run all three checks.</p>
+          </div>
+          <ul id="checks">
+            <li data-check="fit"><span>Fields fit the viewport</span><output>Ready</output></li>
+            <li data-check="invalid"><span>Invalid email gets feedback</span><output>Ready</output></li>
+            <li data-check="valid"><span>Valid enquiry gets confirmation</span><output>Ready</output></li>
+          </ul>
+          <button class="verify" type="button" id="verify">Run checks</button>
+          <p id="check-summary" class="check-summary" role="status"></p>
+        </aside>
+      </div>
+    </section>
+    <p class="disclosure">Fictional business and sample data. Submissions are simulated in your browser.</p>
+  </main>
+</body>
+</html>
